@@ -1,0 +1,275 @@
+@mixin ac($ac-params) {
+	
+	$ac-defaults: map-get($ac-params, defaults);
+	$ac-targets: map-get($ac-params, targets);
+	
+	@if not $ac-targets {
+		
+		@error 'You need to pass a target map to the animation chain';
+	}
+
+	@else {
+		
+		// Set defaults
+		$ac-default-selectors: 					false !default;
+		$ac-default-animation-name: 			false !default;
+		$ac-default-animation-duration: 		false !default;
+		$ac-default-animation-timing-function: 	false !default;
+		$ac-default-animation-delay: 			false !default;
+		$ac-default-animation-iteration-count: 	false !default;
+		$ac-default-animation-direction: 		false !default;
+		$ac-default-animation-fill-mode: 		false !default;
+		$ac-default-animation-play-state: 		false !default;
+		
+		@if $ac-defaults {
+			
+			@if map-has-key($ac-defaults, selectors) {
+			
+				$ac-default-selectors: map-get($ac-defaults, selectors);
+			
+			}
+
+			@if map-has-key($ac-defaults, animation-name) {
+			
+				$ac-default-animation-name: map-get($ac-defaults, animation-name);
+			
+			}
+
+			@if map-has-key($ac-defaults, animation-duration) {
+			
+				$ac-default-animation-duration: map-get($ac-defaults, animation-duration);
+			
+			}
+
+			@if map-has-key($ac-defaults, animation-timing-function) {
+			
+				$ac-default-animation-timing-function: map-get($ac-defaults, animation-timing-function);
+			
+			}
+
+			@if map-has-key($ac-defaults, animation-delay) {
+			
+				$ac-default-animation-delay: map-get($ac-defaults, animation-delay);
+			
+			}
+
+			@if map-has-key($ac-defaults, animation-iteration-count) {
+			
+				$ac-default-animation-iteration-count: map-get($ac-defaults, animation-iteration-count);
+			
+			}
+
+			@if map-has-key($ac-defaults, animation-direction) {
+			
+				$ac-default-animation-direction: map-get($ac-defaults, animation-direction);
+			
+			}
+
+			@if map-has-key($ac-defaults, animation-fill-mode) {
+			
+				$ac-default-animation-fill-mode: map-get($ac-defaults, animation-fill-mode);
+			
+			}
+
+			@if map-has-key($ac-defaults, animation-play-state) {
+			
+				$ac-default-animation-play-state: map-get($ac-defaults, animation-play-state);
+			
+			}
+
+		}
+
+
+		$ac-total-delay: 0ms;
+		
+		$i: 0;
+		@each $target in $ac-targets {
+
+			$ac-selectors: 						false;
+			$ac-animation-name: 				false;
+			$ac-animation-duration: 			false;
+			$ac-animation-timing-function: 		false;
+			$ac-animation-delay: 				false;
+			$ac-animation-iteration-count: 		false;
+			$ac-animation-direction: 			false;
+			$ac-animation-fill-mode: 			false;
+			$ac-animation-play-state: 			false;
+
+
+			// Set selectors
+			@if map-has-key($target, selectors) {
+
+				$ac-selectors: map-get($target, selectors);
+			
+			} @else if $ac-default-selectors {
+			
+				$ac-selectors: map-get($target, selectors);
+			
+			} @else {
+			
+				@error 'No selectors set at animation target number #{$i + 1}'; 
+			
+			}
+
+
+			// Set animation name
+			@if map-has-key($target, animation-name) {
+			
+				$ac-animation-name: map-get($target, animation-name);	
+			
+			} @else if $ac-default-animation-name {
+			
+				$ac-animation-name: $ac-default-animation-name;
+			
+			} @else {
+			
+				@error 'No animation name set at animation target number #{$i + 1}'; 
+			
+			}
+
+			
+			// Set animation duration
+			@if map-has-key($target, animation-duration) {
+			
+				$ac-animation-duration: map-get($target, animation-duration);	
+			
+			} @else if $ac-default-animation-duration {
+			
+				$ac-animation-duration: $ac-default-animation-duration;
+			
+			} @else {
+			
+				@error 'No animation duration set at animation target number #{$i + 1}'; 
+			
+			}
+
+
+			// Set animation timing-function
+			@if map-has-key($target, animation-timing-function) {
+			
+				$ac-animation-timing-function: map-get($target, animation-timing-function);	
+			
+			} @else if $ac-default-animation-timing-function {
+			
+				$ac-animation-timing-function: $ac-default-animation-timing-function;
+			
+			}
+
+
+			// Set animation delay
+			@if map-has-key($target, animation-delay) {
+			
+				$ac-animation-delay: map-get($target, animation-delay);	
+			
+			} @else if $ac-default-animation-delay {
+			
+				$ac-animation-delay: $ac-default-animation-delay;
+			
+			}
+			
+			// Catch negative delay on first target
+			@if $ac-animation-delay and $ac-animation-delay < 0 and $i == 0 {
+				
+				$ac-animation-delay: 0;
+				@warn 'Animation delay of first target cannot be negative. Value has been set to 0';
+			
+			}
+
+
+			// Set animation iteration-count
+			@if map-has-key($target, animation-iteration-count) {
+			
+				$ac-animation-iteration-count: map-get($target, animation-iteration-count);	
+			
+			} @else if $ac-default-animation-iteration-count {
+			
+				$ac-animation-iteration-count: $ac-default-animation-iteration-count;
+			
+			}
+
+
+			// Set animation direction
+			@if map-has-key($target, animation-direction) {
+			
+				$ac-animation-direction: map-get($target, animation-direction);	
+			
+			} @else if $ac-default-animation-direction {
+			
+				$ac-animation-direction: $ac-default-animation-direction;
+			
+			}
+
+
+			// Set animation fill-mode
+			@if map-has-key($target, animation-fill-mode) {
+			
+				$ac-animation-fill-mode: map-get($target, animation-fill-mode);	
+			
+			} @else if $ac-default-animation-fill-mode {
+			
+				$ac-animation-fill-mode: $ac-default-animation-fill-mode;
+			
+			}
+
+
+			// Set animation play-state
+			@if map-has-key($target, animation-play-state) {
+			
+				$ac-animation-play-state: map-get($target, animation-play-state);	
+			
+			} @else if $ac-default-animation-play-state {
+			
+				$ac-animation-play-state: $ac-default-animation-play-state;
+			
+			}
+			
+			
+			$ac-total-delay: if($ac-animation-delay, $ac-total-delay + $ac-animation-delay, $ac-total-delay);
+			
+			@if $ac-total-delay < 0 {
+				@warn 'Negative animation delay is too great at target number #{$i + 1}. Target animation start point has been moved to the beginning of the chain.';
+			}
+
+			@each $selector in $ac-selectors {
+				
+				@at-root {
+					#{$selector} {
+						animation-name: $ac-animation-name;
+						animation-duration: $ac-animation-duration;
+						
+						@if $ac-animation-timing-function {
+							animation-timing-function: $ac-animation-timing-function;	
+						}
+						
+						@if $ac-total-delay > 0ms {
+							animation-delay: $ac-total-delay;	
+						}
+						
+						@if $ac-animation-iteration-count {
+							animation-iteration-count: $ac-animation-iteration-count;	
+						}
+
+						@if $ac-animation-direction {
+							animation-direction: $ac-animation-direction;	
+						}
+
+						@if $ac-animation-fill-mode {
+							animation-fill-mode: $ac-animation-fill-mode;	
+						}
+
+						@if $ac-animation-play-state {
+							animation-play-state: $ac-animation-play-state;	
+						}
+						
+					}
+				}
+			}
+
+			$ac-total-delay: $ac-total-delay + $ac-animation-duration;
+			
+			$i: $i + 1;
+		} 
+
+	}
+
+}
