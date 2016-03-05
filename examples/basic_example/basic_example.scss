@@ -1,0 +1,47 @@
+@import '../setup';
+
+$chain-params: (
+	targets: (
+		(
+			selectors: '.element-1',
+			animation-name: 'fadeIn',
+			animation-duration: .5s,
+			animation-timing-function: linear,
+			animation-iteration-count: 1,
+			animation-direction: alternate,
+			animation-fill-mode: backwards
+		),
+		(
+			// This will happen after .5s because of the previous item's duration
+			selectors: '.element-2',
+			animation-name: 'fadeIn',
+			animation-duration: .5s,
+			animation-timing-function: linear,
+			animation-iteration-count: 1,
+			animation-direction: alternate,
+			animation-fill-mode: backwards,
+			animation-delay: 1s // Delays are also taken into account, so the next items in line waits for this too
+		),
+		(
+			selectors: '.element-3',
+			animation-name: 'fadeIn',
+			animation-duration: .5s,
+			animation-timing-function: linear,
+			animation-iteration-count: 1,
+			animation-direction: alternate,
+			animation-fill-mode: backwards
+		),
+		(
+			selectors: '.element-4',
+			animation-name: 'fadeIn',
+			animation-duration: .5s,
+			animation-timing-function: linear,
+			animation-iteration-count: 1,
+			animation-direction: alternate,
+			animation-fill-mode: backwards
+		),
+	)
+	
+);
+
+@include ac($chain-params);

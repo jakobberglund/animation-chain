@@ -1,0 +1,20 @@
+@import '../src/ac';
+@import 'animations';
+
+.element {
+	width: 100px;
+	height: 100px;
+
+	position: relative;
+	margin: 10px auto; 
+}
+
+$colors: blue yellow green red brown;
+
+@for $i from 1 through 5 {
+	
+	.element-#{$i} {
+		background-color: nth($colors, $i);
+	}
+
+}

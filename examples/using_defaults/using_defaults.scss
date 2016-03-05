@@ -1,0 +1,33 @@
+@import '../setup';
+
+$chain-params: (
+
+	// You can set defaults that applies to all items in the chain
+	defaults: (
+		animation-duration: .5s,
+		animation-timing-function: linear,
+		animation-iteration-count: 2,
+		animation-direction: alternate,
+		animation-fill-mode: backwards,
+		animation-name: 'fadeIn'
+	),
+	targets: (
+		(
+			selectors: '.element-1'
+		),
+		(
+			selectors: '.element-2'
+		),
+		(
+			selectors: '.element-3',
+			animation-name: 'rotate', // And the defaults can be overridden when needed
+			animation-duration: 2s 
+		),
+		(
+			selectors: '.element-4',
+		),
+	)
+	
+);
+
+@include ac($chain-params);

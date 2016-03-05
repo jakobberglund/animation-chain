@@ -1,0 +1,27 @@
+@import '../setup';
+
+$chain-params: (
+	targets: (
+		(
+			selectors: '.element-1' '.element-2' '.element-3', // You can pass multiple selectors at once to the chain
+			animation-duration: .5s,
+			animation-timing-function: linear,
+			animation-iteration-count: 1,
+			animation-direction: alternate,
+			animation-fill-mode: backwards,
+			animation-name: 'slideFromRight'
+		),
+		(
+			selectors: '.element-4',
+			animation-duration: .5s,
+			animation-timing-function: linear,
+			animation-iteration-count: 1,
+			animation-direction: alternate,
+			animation-fill-mode: backwards,
+			animation-name: 'slideFromLeft'
+		),
+	)
+	
+);
+
+@include ac($chain-params);

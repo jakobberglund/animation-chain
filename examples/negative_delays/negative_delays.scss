@@ -1,0 +1,47 @@
+@import '../setup';
+
+$chain-params: (
+	targets: (
+		(
+			selectors: '.element-1',
+			animation-name: 'slideFromLeft',
+			animation-duration: 1s,
+			animation-timing-function: linear,
+			animation-iteration-count: 1,
+			animation-direction: alternate,
+			animation-fill-mode: backwards
+		),
+		(
+			// This will happen .5s before the previous item is complete, because of the negative delay.
+			selectors: '.element-2',
+			animation-name: 'slideFromLeft',
+			animation-duration: .5s,
+			animation-timing-function: linear,
+			animation-iteration-count: 1,
+			animation-direction: alternate,
+			animation-fill-mode: backwards,
+			animation-delay: -.5s // This is awesome
+		),
+		(
+			selectors: '.element-3',
+			animation-name: 'slideFromLeft',
+			animation-duration: .5s,
+			animation-timing-function: linear,
+			animation-iteration-count: 1,
+			animation-direction: alternate,
+			animation-fill-mode: backwards
+		),
+		(
+			selectors: '.element-4',
+			animation-name: 'slideFromLeft',
+			animation-duration: .5s,
+			animation-timing-function: linear,
+			animation-iteration-count: 1,
+			animation-direction: alternate,
+			animation-fill-mode: backwards
+		),
+	)
+	
+);
+
+@include ac($chain-params);

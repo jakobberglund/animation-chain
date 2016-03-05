@@ -229,6 +229,7 @@
 			@if $ac-total-delay < 0 {
 				@warn 'Negative animation delay is too great at target number #{$i + 1}. Target animation start point has been moved to the beginning of the chain.';
 			}
+			
 
 			@each $selector in $ac-selectors {
 				
