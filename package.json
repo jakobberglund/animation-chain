@@ -1,7 +1,7 @@
 {
-  "name": "animation-chain",
+  "name": "sass-animation-chain",
   "version": "1.0.0",
-  "description": "Animation Chain makes it dead simple to chain CSS-animations. It is currently available for Sass. Pass a map of selectors and animations to the ac mixin, and it automatically sequences the animations. It is kind of like a stripped-down and CSS-only version of GSAP's TimelineLite.",
+  "description": "Animation Chain makes it dead simple to chain css-animations. Pass a map of selectors and animations to the ac mixin, and it automatically sequences the animations.",
   "main": "src/ac.scss",
   "directories": {
     "example": "examples"

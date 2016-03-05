@@ -1,6 +1,6 @@
 # Animation Chain
 
-Animation Chain makes it dead simple to chain CSS-animations. It is currently available for Sass. Pass a map of selectors and animations to the ac mixin, and it automatically sequences the animations. It is kind of like a stripped-down and CSS-only version of GSAP's TimelineLite.
+Animation Chain makes it dead simple to chain CSS-animations. It is currently available for Sass. Pass a map of selectors and animations to the ac mixin, and it automatically sequences the animations. It is kind of like a stripped-down and css-only version of GSAP's TimelineLite.
 
 ## Installation
 
