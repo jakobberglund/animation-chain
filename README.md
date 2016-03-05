@@ -1,10 +1,14 @@
 # Animation Chain
 
-Animation Chain makes it dead simple to chain CSS-animations. It is currently available for SASS. Pass a map of selectors and animations to the ac mixin, and it automatically sequences the animations. It is kind of like a stripped-down and CSS-only version of GSAP's TimelineLite.
+Animation Chain makes it dead simple to chain CSS-animations. It is currently available for Sass. Pass a map of selectors and animations to the ac mixin, and it automatically sequences the animations. It is kind of like a stripped-down and CSS-only version of GSAP's TimelineLite.
 
 ## Installation
 
-Import ac.scss into you project, and your done!
+Import ac.scss (located in the src folder) into you project, and your done!
+
+### Example files
+
+There's a bunch of example files in the folder called examples. They have pre-compiled css and all, but if you want to play around with them you can do an NPM install and then run 'gulp' to compile changes to the SCSS-files. 
 
 ## Usage
 
