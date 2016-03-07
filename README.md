@@ -4,7 +4,11 @@ Animation Chain makes it dead simple to chain CSS-animations. It is currently av
 
 ## Installation
 
+Github: [https://github.com/jakobberglund/animation-chain](https://github.com/jakobberglund/animation-chain)
+npm: [https://www.npmjs.com/package/sass-animation-chain](https://www.npmjs.com/package/sass-animation-chain)
+
 Import ac.scss (located in the src folder) into you project, and your done!
+
 
 ### Example files
 
