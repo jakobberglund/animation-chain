@@ -4,8 +4,9 @@ Animation Chain makes it dead simple to chain CSS-animations. It is currently av
 
 ## Installation
 
-Github: [https://github.com/jakobberglund/animation-chain](https://github.com/jakobberglund/animation-chain)
-npm: [https://www.npmjs.com/package/sass-animation-chain](https://www.npmjs.com/package/sass-animation-chain)
+**Github**:<br />[https://github.com/jakobberglund/animation-chain](https://github.com/jakobberglund/animation-chain)
+
+**npm**:<br />[https://www.npmjs.com/package/sass-animation-chain](https://www.npmjs.com/package/sass-animation-chain)
 
 Import ac.scss (located in the src folder) into you project, and your done!
 
@@ -26,99 +27,99 @@ Each item in the list calculates the previous items' durations and delays, and a
 
 Example without defaults.  
 ```scss
-	$chain-params: (
-		targets: (
-			(
-				selectors: '.element-1',
-				animation-name: 'fadeIn',
-				animation-duration: 1s
+    $chain-params: (
+        targets: (
+            (
+                selectors: '.element-1',
+                animation-name: 'fadeIn',
+                animation-duration: 1s
 
-			),
-			(
-				selectors: '.element-2',
-				animation-name: 'fadeOut',
-				animation-duration: 100ms,
-				animation-delay: 200ms
-			),
-			(
-				selectors: '.element-3',
-				animation-name: 'slideIn',
-				animation-duration: .3s,
-				animation-delay: 1s
-			),
-			(
-				selectors: '.element-4',
-				animation-name: 'rotate',
-				animation-duration: 120s
-			)
-		)
-		
-	);
+            ),
+            (
+                selectors: '.element-2',
+                animation-name: 'fadeOut',
+                animation-duration: 100ms,
+                animation-delay: 200ms
+            ),
+            (
+                selectors: '.element-3',
+                animation-name: 'slideIn',
+                animation-duration: .3s,
+                animation-delay: 1s
+            ),
+            (
+                selectors: '.element-4',
+                animation-name: 'rotate',
+                animation-duration: 120s
+            )
+        )
+        
+    );
 
-	@include ac($chain-params);
+    @include ac($chain-params);
 ```
 
 ### Negative Delays
 
 Unlike regular css, you can use negative delays to overlap animations. In the example below, .element-2 will start animating 500ms before .element-1 is done
  ```scss
-	$chain-params: (
-		targets: (
-			(
-				selectors: '.element-1',
-				animation-name: 'fadeInAndDance',
-				animation-duration: 1s
+    $chain-params: (
+        targets: (
+            (
+                selectors: '.element-1',
+                animation-name: 'fadeInAndDance',
+                animation-duration: 1s
 
-			),
-			(
-				selectors: '.element-2',
-				animation-name: 'blink',
-				animation-duration: 2s,
-				animation-delay: -500ms
-			)
-		)
-		
-	);
+            ),
+            (
+                selectors: '.element-2',
+                animation-name: 'blink',
+                animation-duration: 2s,
+                animation-delay: -500ms
+            )
+        )
+        
+    );
 
-	@include ac($chain-params);
+    @include ac($chain-params);
 ```
 
 ### Using defaults
 You can also feed defaults to the mixin. These will be applied to each target element, and can be overridden if you want.
 ```scss
-	$chain-params: (
-		defaults: (
-			animation-duration: 4s,
-			animation-timing-function: linear,
-			animation-iteration-count: 2,
-			animation-direction: alternate,
-			animation-fill-mode: backwards,
-			animation-name: 'fadeIn'
-		),
-		targets: (
-			(
-				selectors: '.element-1',
+    $chain-params: (
+        defaults: (
+            animation-duration: 4s,
+            animation-timing-function: linear,
+            animation-iteration-count: 2,
+            animation-direction: alternate,
+            animation-fill-mode: backwards,
+            animation-name: 'fadeIn'
+        ),
+        targets: (
+            (
+                selectors: '.element-1',
 
-			),
-			(
-				selectors: '.element-2',
-			),
-			(
-				selectors: '.element-3',
-				animation-name: 'flickerLikeABrokenLightBulb',
-				animation-duration: .3s,
-				animation-delay: 1s
-			),
-			(
-				selectors: '.element-4',
-				animation-name: 'rotate',
-				animation-duration: 120s
-			)
-		)
-		
-	);
+            ),
+            (
+                selectors: '.element-2',
+            ),
+            (
+                selectors: '.element-3',
+                animation-name: 'flickerLikeABrokenLightBulb',
+                animation-duration: .3s,
+                animation-delay: 1s
+            ),
+            (
+                selectors: '.element-4',
+                animation-name: 'rotate',
+                animation-duration: 120s
+            )
+        )
+        
+    );
 
-	@include ac($chain-params);
+    @include ac($chain-params);
 ```
 
 ### Things To Take Into Consideration
