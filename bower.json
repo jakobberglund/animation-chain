@@ -1,6 +1,6 @@
 {
   "name": "sass-animation-chain",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "homepage": "https://github.com/jakobberglund/animation-chain",
   "description": "Animation Chain makes it dead simple to chain css-animations. Pass a map of selectors and animations to the ac mixin, and it automatically sequences the animations.",
   "main": "src/ac.scss",
