@@ -4,16 +4,18 @@ Animation Chain makes it dead simple to chain CSS-animations. It is currently av
 
 ## Installation
 
-**Github**:<br />[https://github.com/jakobberglund/animation-chain](https://github.com/jakobberglund/animation-chain)
+**Github**:  [https://github.com/jakobberglund/animation-chain](https://github.com/jakobberglund/animation-chain)
 
-**npm**:<br />[https://www.npmjs.com/package/sass-animation-chain](https://www.npmjs.com/package/sass-animation-chain)
+**npm**:  `npm install sass-animation-chain`
+
+**Bower**: `bower install sass-animation-chain`
 
 Import ac.scss (located in the src folder) into you project, and your done!
 
 
 ### Example files
 
-There's a bunch of example files in the folder called examples. They have pre-compiled css and all, but if you want to play around with them you can do an NPM install and then run 'gulp' to compile changes to the SCSS-files. 
+There's a bunch of example files in the folder called examples. They have pre-compiled css and all, but if you want to play around with them you can do `npm install` and then run `gulp to compile changes to the SCSS-files. 
 
 ## Usage
 
